@@ -1,198 +1,146 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Governança de TI - TecnoTêxtil</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: #121212;
-        color: #eee;
-        margin: 0;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1200px;
-        margin: auto;
-      }
-      h1 {
-        text-align: center;
-        color: #00c2ff;
-      }
-      .grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-      .card {
-        background: #1e1e1e;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 12px rgba(0, 194, 255, 0.2);
-        flex: 1 1 300px;
-        min-width: 300px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .card h2 {
-        margin-top: 0;
-        color: #00c2ff;
-        text-align: center;
-      }
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-      }
-      ul li {
-        padding: 6px 0;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        color: #eee;
-      }
-      th,
-      td {
-        border: 1px solid #333;
-        padding: 8px;
-        text-align: center;
-      }
-      th {
-        background-color: #2e2e2e;
-      }
-      .status-ok {
-        color: #00ff90;
-      }
-      .status-alerta {
-        color: #ffc107;
-      }
-      .status-risco {
-        color: #ff4f4f;
-      }
-      canvas {
-        max-width: 100%;
-        background: #1e1e1e;
-        border-radius: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>
-        <i class="fas fa-network-wired"></i> Dashboard Governança de TI -
-        TecnoTêxtil
-      </h1>
+========================================================
+ASSISTENTE ACADÊMICO INTELIGENTE — PSEUDOCÓDIGO COMPLETO
+========================================================
 
-      <div class="grid">
-        <div class="card">
-          <h2><i class="fas fa-eye"></i> Visão Geral</h2>
-          <ul>
-            <li>Sistemas Críticos Ativos: <strong>5</strong></li>
-            <li>Serviços em Nuvem: <strong>3</strong></li>
-            <li>Chamados Abertos: <strong>12</strong></li>
-            <li>Chamados Encerrados (mês): <strong>48</strong></li>
-            <li>Projetos em Andamento: <strong>3</strong></li>
-            <li>Colaboradores de TI: <strong>6</strong></li>
-          </ul>
-        </div>
+INICIO
 
-        <div class="card">
-          <h2><i class="fas fa-chart-line"></i> KPIs</h2>
-          <canvas id="kpiChart"></canvas>
-        </div>
+// ---------- DECLARAÇÃO DE VARIÁVEIS ----------
+VAR disciplina: LISTA DE TEXTO
+VAR professor: LISTA DE TEXTO
+VAR sala: LISTA DE TEXTO
+VAR dia_semana: LISTA DE TEXTO
+VAR horario_inicio: LISTA DE TEXTO      // ex: "19:00"
+VAR horario_fim: LISTA DE TEXTO         // ex: "22:10"
+VAR intervalo_inicio: LISTA DE TEXTO    // ex: "20:30" (opcional)
+VAR intervalo_fim: LISTA DE TEXTO       // ex: "20:45" (opcional)
+VAR faltas: LISTA DE INTEIRO
 
-        <div class="card">
-          <h2><i class="fas fa-tasks"></i> Projetos Ativos</h2>
-          <ul>
-            <li>Automatização Financeira – <strong>70%</strong></li>
-            <li>Nova Central de Serviços – <strong>40%</strong></li>
-            <li>Adequação LGPD – <strong>85%</strong></li>
-          </ul>
-        </div>
+VAR prova_nome: LISTA DE TEXTO
+VAR prova_data: LISTA DE DATA
+VAR prova_hora: LISTA DE TEXTO          // ex: "19:00"
 
-        <div class="card">
-          <h2><i class="fas fa-shield-alt"></i> Segurança da Informação</h2>
-          <ul>
-            <li>Incidentes no Mês: <strong>0</strong></li>
-            <li>Backups Semanais: <strong>7/7</strong></li>
-            <li>Antivírus Atualizado: <strong>Sim</strong></li>
-            <li>Auditorias no Trimestre: <strong>2</strong></li>
-          </ul>
-        </div>
+VAR i: INTEIRO
+VAR n_disciplinas: INTEIRO
+VAR n_provas: INTEIRO
+VAR resposta: TEXTO
+VAR DIA_ATUAL: TEXTO
+VAR HORA_ATUAL: TEXTO
+VAR DATA_ATUAL: DATA
 
-        <div class="card">
-          <h2><i class="fas fa-graduation-cap"></i> Capacitação</h2>
-          <ul>
-            <li>Equipe Treinada: <strong>100%</strong></li>
-            <li>Cursos Realizados: <strong>4</strong></li>
-            <li>Próximo Workshop: <strong>12/06/2025</strong></li>
-          </ul>
-        </div>
+// ---------- CADASTRO INICIAL ----------
+ESCREVA "Quantas disciplinas deseja cadastrar?"
+LEIA n_disciplinas
 
-        <div class="card">
-          <h2><i class="fas fa-exclamation-triangle"></i> Riscos Ativos</h2>
-          <ul>
-            <li class="status-risco">Falta de automação em setores-chave</li>
-            <li class="status-risco">Infraestrutura limitada para expansão</li>
-            <li class="status-risco">Dependência de poucos fornecedores</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+PARA i = 1 ATÉ n_disciplinas FAÇA
+    ESCREVA "Disciplina ", i, ":"
+    ESCREVA "  Nome:"
+    LEIA disciplina[i]
 
-    <script>
-      const ctx = document.getElementById("kpiChart").getContext("2d");
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: [
-            "SLA Atendimento",
-            "1º Contato Resolvido",
-            "Disponibilidade",
-            "Satisfação",
-          ],
-          datasets: [
-            {
-              label: "Meta (%)",
-              data: [95, 85, 99.5, 8],
-              backgroundColor: "rgba(0, 194, 255, 0.7)",
-            },
-            {
-              label: "Atual (%)",
-              data: [93, 87, 99.8, 9.1],
-              backgroundColor: "rgba(0, 255, 144, 0.7)",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { labels: { color: "#eee" } },
-            title: {
-              display: true,
-              text: "Indicadores de Desempenho (KPIs)",
-              color: "#eee",
-            },
-          },
-          scales: {
-            x: { ticks: { color: "#eee" } },
-            y: { ticks: { color: "#eee" } },
-          },
-        },
-      });
-    </script>
-  </body>
-</html>
+    ESCREVA "  Professor:"
+    LEIA professor[i]
+
+    ESCREVA "  Sala:"
+    LEIA sala[i]
+
+    ESCREVA "  Dia da semana (segunda...domingo):"
+    LEIA dia_semana[i]
+
+    ESCREVA "  Horário de início (HH:MM):"
+    LEIA horario_inicio[i]
+
+    ESCREVA "  Horário de término (HH:MM):"
+    LEIA horario_fim[i]
+
+    ESCREVA "  Tem intervalo? (sim/nao)"
+    LEIA resposta
+    SE resposta = "sim" ENTÃO
+        ESCREVA "  Início do intervalo (HH:MM):"
+        LEIA intervalo_inicio[i]
+        ESCREVA "  Fim do intervalo (HH:MM):"
+        LEIA intervalo_fim[i]
+    SENAO
+        intervalo_inicio[i] = ""
+        intervalo_fim[i] = ""
+    FIM_SE
+
+    faltas[i] = 0
+FIM_PARA
+
+ESCREVA "Quantas provas deseja cadastrar?"
+LEIA n_provas
+
+PARA i = 1 ATÉ n_provas FAÇA
+    ESCREVA "Prova ", i, ":"
+    ESCREVA "  Nome da avaliação:"
+    LEIA prova_nome[i]
+    ESCREVA "  Data (DD/MM/AAAA):"
+    LEIA prova_data[i]
+    ESCREVA "  Horário (HH:MM):"
+    LEIA prova_hora[i]
+FIM_PARA
+
+// ---------- ROTINA DIÁRIA (VERIFICAÇÃO PERIÓDICA) ----------
+ENQUANTO VERDADEIRO FAÇA
+    ATUALIZE DIA_ATUAL, HORA_ATUAL, DATA_ATUAL
+
+    // --- Aviso 1h antes da aula ---
+    PARA i = 1 ATÉ n_disciplinas FAÇA
+        SE DIA_ATUAL = dia_semana[i] E HORA_ATUAL = (horario_inicio[i] - 1h) ENTÃO
+            ESCREVA "⏰ Falta 1h para a aula de ", disciplina[i], " (Sala: ", sala[i], ")"
+        FIM_SE
+    FIM_PARA
+
+    // --- Checar aula do dia (presença/falta) exatamente no início ---
+    PARA i = 1 ATÉ n_disciplinas FAÇA
+        SE DIA_ATUAL = dia_semana[i] E HORA_ATUAL = horario_inicio[i] ENTÃO
+            ESCREVA "Hoje: ", disciplina[i], " com ", professor[i], " (Sala: ", sala[i], ")"
+            ESCREVA "Você vai comparecer? (sim/nao)"
+            LEIA resposta
+
+            SE resposta = "nao" ENTÃO
+                faltas[i] = faltas[i] + 1
+                ESCREVA "😞 Falta registrada. Total em ", disciplina[i], ": ", faltas[i]
+            SENAO
+                ESCREVA "🎓 Boa aula!"
+            FIM_SE
+        FIM_SE
+    FIM_PARA
+
+    // --- Lembrete de prova (30 min antes) ---
+    PARA i = 1 ATÉ n_provas FAÇA
+        SE DATA_ATUAL = prova_data[i] E HORA_ATUAL = (prova_hora[i] - 30min) ENTÃO
+            ESCREVA "📢 Lembrete: Prova de ", prova_nome[i], " hoje às ", prova_hora[i]
+        FIM_SE
+    FIM_PARA
+
+    // --- Intervalo (início e fim) ---
+    PARA i = 1 ATÉ n_disciplinas FAÇA
+        SE DIA_ATUAL = dia_semana[i] E intervalo_inicio[i] <> "" ENTÃO
+            SE HORA_ATUAL = intervalo_inicio[i] ENTÃO
+                ESCREVA "⏸️ Intervalo de ", disciplina[i], ". Beba água e faça um lanche."
+            FIM_SE
+            SE HORA_ATUAL = intervalo_fim[i] ENTÃO
+                ESCREVA "▶️ Fim do intervalo. Volte para a sala."
+            FIM_SE
+        FIM_SE
+    FIM_PARA
+
+    // --- Fim da aula (mensagem de conclusão) ---
+    PARA i = 1 ATÉ n_disciplinas FAÇA
+        SE DIA_ATUAL = dia_semana[i] E HORA_ATUAL = horario_fim[i] ENTÃO
+            ESCREVA "🌟 Parabéns! Aula de ", disciplina[i], " concluída."
+        FIM_SE
+    FIM_PARA
+
+    // --- (Opcional) Relatório diário rápido às 22:30 ---
+    SE HORA_ATUAL = "22:30" ENTÃO
+        ESCREVA "📊 Faltas acumuladas:"
+        PARA i = 1 ATÉ n_disciplinas FAÇA
+            ESCREVA " - ", disciplina[i], ": ", faltas[i]
+        FIM_PARA
+    FIM_SE
+
+    ESPERAR 1 MINUTO
+FIM_ENQUANTO
+
+FIM
